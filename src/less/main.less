@@ -1,0 +1,152 @@
+@shadowTop: 0 -.1rem .2rem rgba(48,48,48,192);
+@shadowBottom: 0 0.2rem 0.3rem rgba(48, 48,48,192);
+html {
+    font-size: 14px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #eee;
+    font-family: "Consolas", "微软雅黑";
+    user-select: none;
+    max-width: 450px;
+    >* {
+        max-width: 450px;
+    }
+}
+
+.title {
+    padding: 1rem 5%;
+    background: steelblue;
+    color: #fff;
+    margin-bottom: 2rem;
+    box-shadow: @shadowBottom;
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    padding-left: 5%;
+
+    .row {
+        >span {
+            display: inline-block;
+            cursor: pointer;
+            text-align: center;
+            width: 10%;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid #ccc;
+            background: aliceblue;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            &:last-child {
+                border-right-width: 2px;
+            }
+            &:first-child {
+                border-left-width: 2px;
+            }
+            &:nth-child(3),
+            &:nth-child(6) {
+                border-right-width: 1px;
+            }
+            &.empty {
+                color: #fff;
+                background: #fff;
+            }
+            &.fixed {
+                background:aquamarine;
+            }
+            &.error {
+                background: lightpink;
+                &.empty {
+                    color: lightpink;
+                }
+            }
+            &.mark1 {
+                background: lightgreen;
+                &.empty {
+                    color: lightgreen;
+                }
+            }
+            &.mark2 {
+                background: grey;
+                &.empty {
+                    color: grey;
+                }
+            }
+        }
+        &:nth-child(3),
+        &:nth-child(6) {
+            >span {
+                border-bottom-width: 1px;
+            }
+        }
+        &:first-child {
+            >span {
+                border-top-width: 2px;
+            }
+        }
+        &:last-child {
+            >span {
+                border-bottom-width: 2px;
+            }
+        }
+    }
+}
+
+// 弹出面板
+@popupCellSize: 40px;
+.popup-num {
+    .container();
+    padding-left: 0;
+    opacity: 0.8;
+    .row {
+        >span {
+            width: @popupCellSize;
+            height: @popupCellSize;
+            line-height: @popupCellSize;
+        }
+    }
+}
+
+.dashboard {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background: steelblue;
+    box-sizing: border-box;
+    box-shadow: @shadowTop;
+    height: 3rem;
+
+    .buttons {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        button{
+            float: left;
+            width: 25%;
+            height: 3rem;
+            font-size: 1.3rem;
+            color: #fff;
+            border: 1px solid #ccc;
+            background: transparent;
+            border-right-width: 0;
+            &:last-child {
+                border-right-width: 1px;
+            }
+        }
+    }
+}
